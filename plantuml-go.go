@@ -1,4 +1,4 @@
-package main
+package plantuml
 
 import (
   "os"
@@ -21,21 +21,7 @@ const (
   STYLE_OUTPUT = "output"
   mapper = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_"
 )
-func main() {
-  opts := parseArgs();
-  if opts.InputStream != nil {
-    process(&opts, encodeAsTextFormat(opts.InputStream), "");
-  }else{
-    for _, filename := range opts.FileNames {
-        data,err := ioutil.ReadFile(filename)
-      if err != nil{
-        fmt.Println(err);
-        continue
-      }
-      process(&opts,encodeAsTextFormat(data), filename);
-    }
-  }
-}
+
 func process(options *Options, textFormat string, filename string) {
   if options.Style == STYLE_TXT {
     fmt.Printf("%s\n" , textFormat)

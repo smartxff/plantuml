@@ -1,4 +1,7 @@
-package main
+package plantuml
+
+
+
 
 import (
   "testing"
