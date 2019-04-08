@@ -22,7 +22,7 @@ const (
   mapper = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_"
 )
 
-func process(options *Options, textFormat string, filename string) {
+func Process(options *Options, textFormat string, filename string) {
   if options.Style == STYLE_TXT {
     fmt.Printf("%s\n" , textFormat)
   } else if options.Style == STYLE_LINK {
@@ -94,7 +94,7 @@ func base64_encode(input []byte) string {
   return string(buffer.Bytes())
 }
 
-func parseArgs() Options {
+func ParseArgs() Options {
   flag.CommandLine.Init(os.Args[0], flag.ExitOnError)
   server := flag.String("s", "http://plantuml.com/plantuml", "Plantuml `server` address. Used when generating link or extracting output")
   format := flag.String("f", "png", "Output `format` type. (Options: png,txt,svg)")
